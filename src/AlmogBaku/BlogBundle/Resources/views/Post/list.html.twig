@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {% for entity in entities %}
+        <h1>{{ entity.title }}</h1>
+
+        <span>posted on {{ entity.created|date('Y-m-d H:i:s') }}</span>
+
+        <div class="content">
+            {{ entity.content|raw }}
+        </div>
+        <hr />
+    {% endfor %}
+{% endblock %}

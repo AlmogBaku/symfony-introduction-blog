@@ -9,11 +9,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
-     * @Template()
+     * @Route("/")
+     * @Template("BlogBundle:Post:list.html.twig")
      */
-    public function indexAction($name)
+    public function listAction()
     {
-        return array('name' => $name);
+        $repo = $this->getDoctrine()->getRepository("BlogBundle:Post");
+        $entities = $repo->findAll();
+        return array('entities' => $entities);
     }
 }
