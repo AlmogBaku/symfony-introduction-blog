@@ -18,7 +18,7 @@ class PostType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('created')
-            ->add('published')
+            ->add('published',"checkbox", ["required"=>false])
         ;
     }
     
